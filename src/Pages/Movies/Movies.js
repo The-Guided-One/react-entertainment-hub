@@ -16,7 +16,7 @@ const Movies = () => {
 
   const fetchMovies = async () => {
     const { data } = await axios.get(
-      "https://api.themoviedb.org/3/discover/movie?api_key=fa852af59236970406a571e248ebda0a&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page&with_genres"
+      `https://api.themoviedb.org/3/trending/all/day?api_key=${process.env.REACT_APP_API_KEY}&page=${page}`
     );
     setContent(data.results);
     setNumOfPages(data.total_pages);
